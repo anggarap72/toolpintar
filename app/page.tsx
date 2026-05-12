@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   FileText,
   Sparkles,
@@ -67,7 +69,7 @@ export default function Home() {
         <div className="grid md:grid-cols-4 gap-6">
 
           {/* PDF */}
-          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white">
+          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white cursor-pointer">
 
             <FileText className="text-red-500 mb-4" size={40} />
 
@@ -82,7 +84,7 @@ export default function Home() {
           </div>
 
           {/* AI */}
-          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white">
+          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white cursor-pointer">
 
             <Sparkles className="text-purple-500 mb-4" size={40} />
 
@@ -96,23 +98,27 @@ export default function Home() {
 
           </div>
 
-          {/* OCR */}
-          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white">
+          {/* OCR LINK */}
+          <Link href="/image-to-text">
 
-            <ScanText className="text-green-500 mb-4" size={40} />
+            <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white cursor-pointer">
 
-            <h3 className="text-2xl font-bold text-green-500">
-              OCR Tools
-            </h3>
+              <ScanText className="text-green-500 mb-4" size={40} />
 
-            <p className="mt-4 text-gray-600">
-              Scan images and convert to automatic text.
-            </p>
+              <h3 className="text-2xl font-bold text-green-500">
+                OCR Tools
+              </h3>
 
-          </div>
+              <p className="mt-4 text-gray-600">
+                Scan images and convert to automatic text.
+              </p>
+
+            </div>
+
+          </Link>
 
           {/* Template */}
-          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white">
+          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white cursor-pointer">
 
             <LayoutTemplate className="text-orange-500 mb-4" size={40} />
 
@@ -163,17 +169,22 @@ export default function Home() {
 
           </div>
 
-          <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white">
+          {/* OCR POPULAR */}
+          <Link href="/image-to-text">
 
-            <h3 className="text-2xl font-bold">
-              Image to Text OCR
-            </h3>
+            <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white cursor-pointer">
 
-            <p className="mt-4 text-gray-600">
-              Scan images into automatic text.
-            </p>
+              <h3 className="text-2xl font-bold">
+                Image to Text OCR
+              </h3>
 
-          </div>
+              <p className="mt-4 text-gray-600">
+                Scan images into automatic text.
+              </p>
+
+            </div>
+
+          </Link>
 
           <div className="border rounded-3xl p-8 shadow-sm hover:shadow-xl transition bg-white">
 
