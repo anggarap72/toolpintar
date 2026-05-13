@@ -3,93 +3,82 @@
 import { useState } from "react";
 import { PDFDocument } from "pdf-lib";
 
-export default function CompressPdfPage() {
+export default function CompressPDFPage() {
   const [file, setFile] = useState<File | null>(null);
+  const [downloadUrl, setDownloadUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [originalSize, setOriginalSize] = useState("");
   const [compressedSize, setCompressedSize] =
     useState("");
 
-  const handleUpload = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const uploadedFile = e.target.files?.[0];
-
-    if (!uploadedFile) return;
-
-    setFile(uploadedFile);
-
-    const sizeMB = (
-      uploadedFile.size /
-      1024 /
-      1024
-    ).toFixed(2);
-
-    setOriginalSize(sizeMB + " MB");
-    setCompressedSize("");
-  };
-
-  const compressPdf = async () => {
+  const handleCompress = async () => {
     if (!file) return;
 
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    const bytes = await file.arrayBuffer();
+      const arrayBuffer = await file.arrayBuffer();
 
-    const pdfDoc = await PDFDocument.load(bytes);
+      const pdfDoc = await PDFDocument.load(
+        arrayBuffer
+      );
 
-    const compressedPdfBytes = await pdfDoc.save({
-      useObjectStreams: false,
-    });
+      const compressedPdfBytes =
+        await pdfDoc.save({
+          useObjectStreams: true,
+        });
 
-    const blob = new Blob([compressedPdfBytes], {
-      type: "application/pdf",
-    });
+      const blob = new Blob(
+        [compressedPdfBytes as BlobPart],
+        {
+          type: "application/pdf",
+        }
+      );
 
-    const compressedMB = (
-      blob.size /
-      1024 /
-      1024
-    ).toFixed(2);
+      const url = URL.createObjectURL(blob);
 
-    setCompressedSize(compressedMB + " MB");
+      setDownloadUrl(url);
 
-    const url = URL.createObjectURL(blob);
+      setOriginalSize(
+        `${(file.size / 1024 / 1024).toFixed(
+          2
+        )} MB`
+      );
 
-    const a = document.createElement("a");
-
-    a.href = url;
-    a.download = "compressed-toolpintar.pdf";
-
-    a.click();
-
-    setLoading(false);
+      setCompressedSize(
+        `${(blob.size / 1024 / 1024).toFixed(
+          2
+        )} MB`
+      );
+    } catch (error) {
+      console.error(error);
+      alert("Failed to compress PDF");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#f5f7fb",
+        background: "#f5f5f7",
+        padding: "40px 20px",
         fontFamily: "Arial, sans-serif",
       }}
     >
-      {/* HERO */}
-      <section
+      <div
         style={{
-          padding: "100px 20px",
-          background:
-            "linear-gradient(135deg,#166534,#16a34a)",
-          color: "white",
-          textAlign: "center",
+          maxWidth: "900px",
+          margin: "0 auto",
         }}
       >
         <h1
           style={{
-            fontSize: "clamp(48px,10vw,72px)",
-            fontWeight: 800,
-            marginBottom: "24px",
-            letterSpacing: "-3px",
+            textAlign: "center",
+            fontSize: "48px",
+            fontWeight: 900,
+            marginBottom: "15px",
           }}
         >
           Compress PDF
@@ -97,62 +86,57 @@ export default function CompressPdfPage() {
 
         <p
           style={{
-            maxWidth: "900px",
-            margin: "0 auto",
-            fontSize: "clamp(18px,4vw,28px)",
-            lineHeight: "1.8",
+            textAlign: "center",
+            color: "#666",
+            marginBottom: "40px",
+            fontSize: "18px",
           }}
         >
-          Reduce PDF file size online instantly without
-          losing quality.
+          Reduce PDF file size online instantly
         </p>
-      </section>
 
-      {/* TOOL */}
-      <section
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "80px 20px",
-        }}
-      >
         <div
           style={{
             background: "white",
-            borderRadius: "35px",
-            padding: "50px",
+            borderRadius: "30px",
+            padding: "35px",
             boxShadow:
-              "0 20px 50px rgba(0,0,0,0.08)",
+              "0 10px 30px rgba(0,0,0,0.05)",
           }}
         >
-          {/* UPLOAD */}
+          {/* Upload */}
           <label
-            htmlFor="upload-pdf"
             style={{
-              display: "block",
               border: "3px dashed #16a34a",
-              borderRadius: "30px",
-              padding: "80px 30px",
+              borderRadius: "25px",
+              padding: "70px 20px",
+              display: "block",
               textAlign: "center",
-              background: "#f0fdf4",
               cursor: "pointer",
+              background: "#f0fdf4",
             }}
           >
-            <div
-              style={{
-                fontSize: "70px",
-                marginBottom: "20px",
+            <input
+              type="file"
+              accept="application/pdf"
+              hidden
+              onChange={(e) => {
+                const selected =
+                  e.target.files?.[0];
+
+                if (selected) {
+                  setFile(selected);
+                  setDownloadUrl("");
+                }
               }}
-            >
-              📄
-            </div>
+            />
 
             <h2
               style={{
-                fontSize: "clamp(32px,6vw,42px)",
-                color: "#166534",
+                fontSize: "36px",
+                fontWeight: 900,
+                color: "#16a34a",
                 marginBottom: "15px",
-                fontWeight: 800,
               }}
             >
               Upload PDF File
@@ -160,164 +144,138 @@ export default function CompressPdfPage() {
 
             <p
               style={{
-                color: "#555",
-                fontSize: "clamp(16px,3vw,22px)",
+                color: "#666",
+                fontSize: "18px",
               }}
             >
-              Click or drag PDF here
+              Click to upload PDF
             </p>
-
-            <input
-              id="upload-pdf"
-              type="file"
-              accept=".pdf"
-              onChange={handleUpload}
-              style={{
-                display: "none",
-              }}
-            />
           </label>
 
-          {/* FILE INFO */}
+          {/* File Info */}
           {file && (
             <div
               style={{
-                marginTop: "50px",
+                marginTop: "30px",
+                background: "#f9fafb",
+                padding: "25px",
+                borderRadius: "20px",
               }}
             >
-              <div
+              <h3
                 style={{
-                  background: "#f8fafc",
-                  padding: "30px",
-                  borderRadius: "24px",
-                  marginBottom: "30px",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "28px",
-                    marginBottom: "20px",
-                    fontWeight: 800,
-                  }}
-                >
-                  File Information
-                </h3>
-
-                <div
-                  style={{
-                    display: "grid",
-                    gap: "15px",
-                    fontSize: "20px",
-                    color: "#444",
-                  }}
-                >
-                  <p>
-                    <strong>File:</strong> {file.name}
-                  </p>
-
-                  <p>
-                    <strong>Original Size:</strong>{" "}
-                    {originalSize}
-                  </p>
-
-                  {compressedSize && (
-                    <p>
-                      <strong>Compressed Size:</strong>{" "}
-                      {compressedSize}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* BUTTON */}
-              <button
-                onClick={compressPdf}
-                disabled={loading}
-                style={{
-                  width: "100%",
-                  padding: "24px",
-                  borderRadius: "18px",
-                  border: "none",
-                  background:
-                    "linear-gradient(135deg,#166534,#16a34a)",
-                  color: "white",
-                  fontSize: "24px",
+                  fontSize: "28px",
                   fontWeight: 800,
-                  cursor: "pointer",
+                  marginBottom: "15px",
                 }}
               >
-                {loading
-                  ? "Compressing PDF..."
-                  : "Compress PDF"}
-              </button>
+                Selected File
+              </h3>
+
+              <p
+                style={{
+                  color: "#555",
+                  wordBreak: "break-word",
+                }}
+              >
+                {file.name}
+              </p>
+            </div>
+          )}
+
+          {/* Compress Button */}
+          <button
+            onClick={handleCompress}
+            disabled={!file || loading}
+            style={{
+              width: "100%",
+              marginTop: "30px",
+              padding: "22px",
+              borderRadius: "18px",
+              border: "none",
+              background:
+                loading || !file
+                  ? "#9ca3af"
+                  : "#16a34a",
+              color: "white",
+              fontWeight: 800,
+              fontSize: "20px",
+              cursor:
+                loading || !file
+                  ? "not-allowed"
+                  : "pointer",
+            }}
+          >
+            {loading
+              ? "Compressing PDF..."
+              : "Compress PDF"}
+          </button>
+
+          {/* Result */}
+          {downloadUrl && (
+            <div
+              style={{
+                marginTop: "35px",
+                background: "#f0fdf4",
+                borderRadius: "25px",
+                padding: "30px",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "32px",
+                  fontWeight: 900,
+                  color: "#16a34a",
+                  marginBottom: "20px",
+                }}
+              >
+                Compression Complete
+              </h3>
+
+              <p
+                style={{
+                  marginBottom: "10px",
+                  fontSize: "18px",
+                }}
+              >
+                <strong>Original Size:</strong>{" "}
+                {originalSize}
+              </p>
+
+              <p
+                style={{
+                  marginBottom: "25px",
+                  fontSize: "18px",
+                }}
+              >
+                <strong>Compressed Size:</strong>{" "}
+                {compressedSize}
+              </p>
+
+              <a
+                href={downloadUrl}
+                download="compressed.pdf"
+              >
+                <button
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    borderRadius: "18px",
+                    border: "none",
+                    background: "#16a34a",
+                    color: "white",
+                    fontWeight: 800,
+                    fontSize: "20px",
+                    cursor: "pointer",
+                  }}
+                >
+                  Download PDF
+                </button>
+              </a>
             </div>
           )}
         </div>
-      </section>
-
-      {/* FEATURES */}
-      <section
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          padding: "0 20px 100px",
-        }}
-      >
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "clamp(40px,7vw,56px)",
-            marginBottom: "45px",
-            fontWeight: 800,
-          }}
-        >
-          Why Use ToolPintar?
-        </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(260px,1fr))",
-            gap: "25px",
-          }}
-        >
-          {[
-            "Fast PDF compression",
-            "Secure processing",
-            "Works on mobile",
-            "Unlimited free usage",
-          ].map((item, index) => (
-            <div
-              key={index}
-              style={{
-                background: "white",
-                padding: "35px",
-                borderRadius: "28px",
-                boxShadow:
-                  "0 12px 30px rgba(0,0,0,0.05)",
-                textAlign: "center",
-                fontSize: "22px",
-                fontWeight: 700,
-              }}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer
-        style={{
-          textAlign: "center",
-          padding: "50px 20px",
-          color: "#777",
-          fontSize: "16px",
-        }}
-      >
-        © 2026 ToolPintar. All rights reserved.
-      </footer>
+      </div>
     </main>
   );
 }
