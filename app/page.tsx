@@ -85,11 +85,13 @@ export default function Home() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            flexWrap: "wrap",
+            gap: "20px",
           }}
         >
           <h2
             style={{
-              fontSize: "34px",
+              fontSize: "clamp(28px,5vw,34px)",
               fontWeight: 800,
               color: "#4f46e5",
               margin: 0,
@@ -101,10 +103,12 @@ export default function Home() {
           <div
             style={{
               display: "flex",
-              gap: "28px",
+              gap: "20px",
               color: "#444",
               fontWeight: 600,
-              fontSize: "16px",
+              fontSize: "15px",
+              flexWrap: "wrap",
+              justifyContent: "center",
             }}
           >
             <span>Tools</span>
@@ -123,7 +127,7 @@ export default function Home() {
                   "linear-gradient(135deg,#4f46e5,#7c3aed)",
                 color: "white",
                 fontWeight: 700,
-                fontSize: "16px",
+                fontSize: "15px",
                 cursor: "pointer",
               }}
             >
@@ -178,10 +182,11 @@ export default function Home() {
         >
           <h1
             style={{
-              fontSize: "92px",
+              fontSize: "clamp(48px,10vw,92px)",
               fontWeight: 800,
               marginBottom: "24px",
               letterSpacing: "-4px",
+              lineHeight: "1.1",
             }}
           >
             ToolPintar
@@ -191,13 +196,14 @@ export default function Home() {
             style={{
               maxWidth: "900px",
               margin: "0 auto",
-              fontSize: "30px",
+              fontSize: "clamp(18px,4vw,30px)",
               lineHeight: "1.7",
               opacity: 0.96,
+              padding: "0 10px",
             }}
           >
-            Free online tools for PDF, OCR, AI, and productivity.
-            Fast, secure, and easy to use.
+            Free online tools for PDF, OCR, AI, and
+            productivity. Fast, secure, and easy to use.
           </p>
 
           {/* SEARCH */}
@@ -206,6 +212,7 @@ export default function Home() {
               marginTop: "45px",
               display: "flex",
               justifyContent: "center",
+              padding: "0 10px",
             }}
           >
             <input
@@ -216,12 +223,13 @@ export default function Home() {
               style={{
                 width: "100%",
                 maxWidth: "560px",
-                padding: "22px 26px",
+                padding: "20px 24px",
                 borderRadius: "18px",
                 border: "none",
                 outline: "none",
-                fontSize: "18px",
-                boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
+                fontSize: "16px",
+                boxShadow:
+                  "0 15px 35px rgba(0,0,0,0.15)",
               }}
             />
           </div>
@@ -234,13 +242,13 @@ export default function Home() {
             <Link href="/image-to-text">
               <button
                 style={{
-                  padding: "18px 40px",
+                  padding: "18px 34px",
                   borderRadius: "18px",
                   border: "none",
                   background: "white",
                   color: "#4f46e5",
                   fontWeight: 800,
-                  fontSize: "20px",
+                  fontSize: "18px",
                   cursor: "pointer",
                   boxShadow:
                     "0 15px 35px rgba(0,0,0,0.15)",
@@ -258,17 +266,18 @@ export default function Home() {
         style={{
           maxWidth: "1450px",
           margin: "0 auto",
-          padding: "90px 40px",
+          padding: "90px 20px",
         }}
       >
         <h2
           style={{
             textAlign: "center",
-            fontSize: "72px",
+            fontSize: "clamp(42px,8vw,72px)",
             marginBottom: "70px",
             color: "#111",
             fontWeight: 800,
             letterSpacing: "-3px",
+            lineHeight: "1.1",
           }}
         >
           Popular Tools
@@ -278,8 +287,8 @@ export default function Home() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              "repeat(auto-fit,minmax(320px,1fr))",
-            gap: "35px",
+              "repeat(auto-fit,minmax(280px,1fr))",
+            gap: "30px",
           }}
         >
           {filteredTools.map((tool, index) => (
@@ -295,14 +304,15 @@ export default function Home() {
                   background: "rgba(255,255,255,0.82)",
                   backdropFilter: "blur(14px)",
                   borderRadius: "34px",
-                  padding: "40px",
-                  height: "520px",
+                  padding: "35px",
+                  minHeight: "520px",
                   display: "flex",
                   flexDirection: "column",
                   boxShadow:
                     "0 15px 35px rgba(0,0,0,0.06)",
                   transition: "all 0.25s ease",
-                  border: "1px solid rgba(255,255,255,0.6)",
+                  border:
+                    "1px solid rgba(255,255,255,0.6)",
                   overflow: "hidden",
                 }}
                 onMouseEnter={(e) => {
@@ -321,15 +331,15 @@ export default function Home() {
                 {/* ICON */}
                 <div
                   style={{
-                    width: "95px",
-                    height: "95px",
+                    width: "90px",
+                    height: "90px",
                     borderRadius: "28px",
                     background: tool.color,
-                    marginBottom: "36px",
+                    marginBottom: "32px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "42px",
+                    fontSize: "40px",
                   }}
                 >
                   {tool.icon}
@@ -338,16 +348,15 @@ export default function Home() {
                 {/* TITLE */}
                 <h3
                   style={{
-                    fontSize: "38px",
+                    fontSize: "clamp(28px,5vw,38px)",
                     lineHeight: "1.2",
                     color: "#111",
                     fontWeight: 800,
-                    marginBottom: "26px",
-                    letterSpacing: "-1.5px",
+                    marginBottom: "24px",
+                    letterSpacing: "-1px",
                     minHeight: "100px",
                     display: "flex",
                     alignItems: "flex-start",
-                    overflow: "hidden",
                   }}
                 >
                   {tool.title}
@@ -357,11 +366,10 @@ export default function Home() {
                 <p
                   style={{
                     color: "#5c5c5c",
-                    lineHeight: "1.9",
-                    fontSize: "22px",
-                    minHeight: "120px",
+                    lineHeight: "1.8",
+                    fontSize: "clamp(16px,3vw,22px)",
+                    minHeight: "110px",
                     margin: 0,
-                    overflow: "hidden",
                   }}
                 >
                   {tool.desc}
@@ -382,7 +390,7 @@ export default function Home() {
                       background: tool.buttonBg,
                       color: tool.buttonText,
                       fontWeight: 800,
-                      fontSize: "20px",
+                      fontSize: "18px",
                       cursor: "pointer",
                     }}
                   >
@@ -406,10 +414,11 @@ export default function Home() {
         <h2
           style={{
             textAlign: "center",
-            fontSize: "58px",
+            fontSize: "clamp(38px,7vw,58px)",
             marginBottom: "50px",
             fontWeight: 800,
             letterSpacing: "-2px",
+            lineHeight: "1.1",
           }}
         >
           Frequently Asked Questions
@@ -439,7 +448,7 @@ export default function Home() {
               key={index}
               style={{
                 background: "white",
-                padding: "38px",
+                padding: "32px",
                 borderRadius: "28px",
                 boxShadow:
                   "0 12px 30px rgba(0,0,0,0.05)",
@@ -448,9 +457,10 @@ export default function Home() {
               <h3
                 style={{
                   marginBottom: "14px",
-                  fontSize: "30px",
+                  fontSize: "clamp(24px,5vw,30px)",
                   color: "#111",
                   fontWeight: 700,
+                  lineHeight: "1.3",
                 }}
               >
                 {faq.q}
@@ -459,8 +469,8 @@ export default function Home() {
               <p
                 style={{
                   color: "#555",
-                  lineHeight: "1.9",
-                  fontSize: "20px",
+                  lineHeight: "1.8",
+                  fontSize: "clamp(16px,3vw,20px)",
                   margin: 0,
                 }}
               >
@@ -477,7 +487,7 @@ export default function Home() {
           textAlign: "center",
           padding: "50px 20px",
           color: "#777",
-          fontSize: "18px",
+          fontSize: "16px",
         }}
       >
         © 2026 ToolPintar. All rights reserved.
