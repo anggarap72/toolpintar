@@ -1,331 +1,426 @@
 "use client";
 
 import Link from "next/link";
+import {
+  Sparkles,
+  FileText,
+  ImageIcon,
+  Wand2,
+  Type,
+  LayoutGrid,
+} from "lucide-react";
 
 export default function HomePage() {
-
-  const tools = [
-    {
-      title: "Image to Text OCR",
-      description:
-        "Convert image into editable text instantly.",
-      color: "#4f46e5",
-      bg: "#ede9fe",
-      icon: "📝",
-      link: "/image-to-text",
-    },
-
-    {
-      title: "Compress PDF",
-      description:
-        "Reduce PDF file size without losing quality.",
-      color: "#16a34a",
-      bg: "#dcfce7",
-      icon: "🗜️",
-      link: "/compress-pdf",
-    },
-
-    {
-      title: "JPG to PDF",
-      description:
-        "Convert JPG images into PDF instantly.",
-      color: "#0f172a",
-      bg: "#e2e8f0",
-      icon: "🖼️",
-      link: "/jpg-to-pdf",
-    },
-
-    {
-      title: "AI PPT Generator",
-      description:
-        "Generate presentation slides using AI.",
-      color: "#ea580c",
-      bg: "#ffedd5",
-      icon: "📊",
-      link: "/ai-ppt-generator",
-    },
-
-    {
-      title: "PDF Converter",
-      description:
-        "Convert PDF ke JPG / PNG HD dengan fitur premium.",
-      color: "#2563eb",
-      bg: "#dbeafe",
-      icon: "📄",
-      link: "/pdf-to-jpg",
-    },
-  ];
-
-  const faqs = [
-    {
-      q: "Is ToolPintar free?",
-      a: "Yes, all tools are free to use online.",
-    },
-    {
-      q: "Are uploaded files secure?",
-      a: "Yes, your files are processed securely and privately.",
-    },
-    {
-      q: "Can I use ToolPintar on mobile?",
-      a: "Yes, ToolPintar works perfectly on desktop and mobile devices.",
-    },
-  ];
-
   return (
-    <main className="min-h-screen bg-[#f5f7fb] text-black">
-
+    <main className="min-h-screen bg-[#f5f7fb] overflow-hidden">
+      {/* ========================= */}
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+      {/* ========================= */}
 
-        <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <header className="w-full bg-white border-b border-zinc-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-          <div>
+          {/* LOGO */}
+          <div className="flex items-center gap-3">
 
-            <h1 className="text-2xl font-bold text-indigo-600">
-              ToolPintar
-            </h1>
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg">
+              <Sparkles className="text-white w-6 h-6" />
+            </div>
 
-            <p className="text-sm text-gray-500 mt-1">
-              Premium Productivity Tools
-            </p>
+            <div>
+              <h1 className="text-3xl font-black tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                ToolPintar
+              </h1>
 
+              <p className="text-sm text-zinc-500">
+                Premium Productivity Tools
+              </p>
+            </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-6 text-sm text-gray-600">
+          {/* MENU */}
+          <nav className="hidden md:flex items-center gap-10 text-sm font-medium text-zinc-600">
+            <a href="#tools">Tools</a>
+            <a href="#faq">FAQ</a>
+          </nav>
 
-            <a
-              href="#tools"
-              className="hover:text-black transition"
-            >
-              Tools
-            </a>
-
-            <a
-              href="#faq"
-              className="hover:text-black transition"
-            >
-              FAQ
-            </a>
-
-            <Link href="/pdf-to-jpg">
-
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold transition">
-                Open PDF Tool
-              </button>
-
-            </Link>
-
-          </div>
-
+          {/* BUTTON */}
+          <Link
+            href="/pdf-to-jpg"
+            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition"
+          >
+            Open PDF Tool
+          </Link>
         </div>
+      </header>
 
-      </nav>
+      {/* ========================= */}
+      {/* HERO PREMIUM */}
+      {/* ========================= */}
 
-      {/* HERO */}
-      <section className="relative overflow-hidden">
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg,#312e81 0%,#6d28d9 45%,#9333ea 100%)",
+        }}
+      >
 
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-700 via-violet-600 to-purple-600" />
+        {/* GLOW */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-120px",
+            left: "-120px",
+            width: "320px",
+            height: "320px",
+            borderRadius: "999px",
+            background: "rgba(255,255,255,0.12)",
+            filter: "blur(40px)",
+          }}
+        />
 
-        <div className="absolute top-[-120px] right-[-120px] w-[280px] h-[280px] rounded-full bg-white/10" />
+        <div
+          style={{
+            position: "absolute",
+            right: "-100px",
+            top: "-60px",
+            width: "260px",
+            height: "260px",
+            borderRadius: "999px",
+            background: "rgba(255,255,255,0.10)",
+            filter: "blur(30px)",
+          }}
+        />
 
-        <div className="absolute bottom-[-120px] left-[-120px] w-[260px] h-[260px] rounded-full bg-white/10" />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-140px",
+            right: "20%",
+            width: "320px",
+            height: "320px",
+            borderRadius: "999px",
+            background: "rgba(255,255,255,0.08)",
+            filter: "blur(50px)",
+          }}
+        />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-5 py-24 md:py-32 text-center text-white">
+        {/* CONTENT */}
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "120px 20px 110px",
+            position: "relative",
+            zIndex: 2,
+            textAlign: "center",
+            color: "white",
+          }}
+        >
 
-          <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
+          {/* BADGE */}
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              padding: "12px 22px",
+              borderRadius: "999px",
+              background: "rgba(255,255,255,0.12)",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              marginBottom: "35px",
+              fontWeight: 700,
+              fontSize: "15px",
+            }}
+          >
+            ✨ Premium Productivity Platform
+          </div>
 
+          {/* TITLE */}
+          <h1
+            style={{
+              fontSize: "72px",
+              lineHeight: "1.05",
+              fontWeight: 900,
+              letterSpacing: "-3px",
+              marginBottom: "30px",
+            }}
+          >
             Modern Online Tools
             <br />
             For Everyday Productivity
-
           </h1>
 
-          <p className="max-w-2xl mx-auto text-base md:text-xl text-white/90 leading-relaxed">
-
+          {/* DESC */}
+          <p
+            style={{
+              maxWidth: "850px",
+              margin: "0 auto",
+              fontSize: "24px",
+              lineHeight: "1.8",
+              color: "rgba(255,255,255,0.88)",
+              marginBottom: "45px",
+            }}
+          >
             Fast, secure, and easy-to-use tools for PDF,
             OCR, AI, and productivity — all in one place.
-
           </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          {/* BUTTON */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "18px",
+              flexWrap: "wrap",
+            }}
+          >
+            <a
+              href="#tools"
+              style={{
+                padding: "18px 34px",
+                borderRadius: "18px",
+                background: "white",
+                color: "#5b21b6",
+                fontWeight: 800,
+                fontSize: "18px",
+                textDecoration: "none",
+                boxShadow:
+                  "0 10px 30px rgba(0,0,0,0.18)",
+              }}
+            >
+              Explore Tools
+            </a>
 
-            <Link href="/pdf-to-jpg">
-
-              <button className="bg-white text-indigo-700 hover:bg-gray-100 px-6 py-3 rounded-2xl font-bold shadow-lg transition">
-                Try PDF Converter
-              </button>
-
-            </Link>
-
-            <Link href="/ocr">
-
-              <button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-2xl font-bold transition">
-                OCR Tool
-              </button>
-
-            </Link>
-
+            <a
+              href="/image-to-text"
+              style={{
+                padding: "18px 34px",
+                borderRadius: "18px",
+                background: "rgba(255,255,255,0.10)",
+                color: "white",
+                fontWeight: 800,
+                fontSize: "18px",
+                textDecoration: "none",
+                border:
+                  "1px solid rgba(255,255,255,0.15)",
+                backdropFilter: "blur(10px)",
+              }}
+            >
+              OCR Tool
+            </a>
           </div>
-
         </div>
-
       </section>
 
+      {/* ========================= */}
       {/* TOOLS */}
+      {/* ========================= */}
+
       <section
         id="tools"
-        className="max-w-6xl mx-auto px-5 py-16"
+        className="max-w-7xl mx-auto px-6 py-20"
       >
-
-        <div className="flex items-center justify-between mb-8">
-
+        {/* HEADER */}
+        <div className="flex justify-between items-center mb-10">
           <div>
-
-            <h2 className="text-3xl font-bold mb-2">
+            <h2 className="text-5xl font-black text-zinc-900 mb-2">
               Popular Tools
             </h2>
 
-            <p className="text-gray-500">
+            <p className="text-zinc-500 text-lg">
               Fast and modern tools for daily work.
             </p>
-
           </div>
 
-          <div className="text-sm text-gray-500">
-            {tools.length} Tools
+          <div className="text-zinc-400 font-semibold">
+            5 Tools
           </div>
-
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* GRID */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-          {tools.map((tool, index) => (
+          {/* OCR */}
+          <Link
+            href="/image-to-text"
+            className="bg-white rounded-3xl border border-zinc-200 p-6 hover:shadow-xl transition"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center mb-5">
+              <Wand2 className="w-7 h-7 text-purple-600" />
+            </div>
 
-            <Link
-              href={tool.link}
-              key={index}
-            >
+            <h3 className="text-3xl font-black text-zinc-900 mb-3">
+              Image to Text OCR
+            </h3>
 
-              <div className="group bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 h-full">
+            <p className="text-zinc-500 text-lg leading-relaxed mb-6">
+              Convert image into editable text instantly.
+            </p>
 
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-5"
-                  style={{
-                    background: tool.bg,
-                  }}
-                >
-                  {tool.icon}
-                </div>
+            <div className="text-purple-600 font-bold">
+              Open Tool →
+            </div>
+          </Link>
 
-                <h3 className="text-xl font-bold mb-3 leading-snug">
+          {/* COMPRESS PDF */}
+          <Link
+            href="/compress-pdf"
+            className="bg-white rounded-3xl border border-zinc-200 p-6 hover:shadow-xl transition"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-5">
+              <FileText className="w-7 h-7 text-green-600" />
+            </div>
 
-                  {tool.title}
+            <h3 className="text-3xl font-black text-zinc-900 mb-3">
+              Compress PDF
+            </h3>
 
-                </h3>
+            <p className="text-zinc-500 text-lg leading-relaxed mb-6">
+              Reduce PDF file size without losing quality.
+            </p>
 
-                <p className="text-gray-600 leading-relaxed text-sm">
+            <div className="text-green-600 font-bold">
+              Open Tool →
+            </div>
+          </Link>
 
-                  {tool.description}
+          {/* JPG TO PDF */}
+          <Link
+            href="/jpg-to-pdf"
+            className="bg-white rounded-3xl border border-zinc-200 p-6 hover:shadow-xl transition"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center mb-5">
+              <ImageIcon className="w-7 h-7 text-orange-600" />
+            </div>
 
-                </p>
+            <h3 className="text-3xl font-black text-zinc-900 mb-3">
+              JPG to PDF
+            </h3>
 
-                <div
-                  className="mt-6 font-semibold text-sm"
-                  style={{
-                    color: tool.color,
-                  }}
-                >
-                  Open Tool →
-                </div>
+            <p className="text-zinc-500 text-lg leading-relaxed mb-6">
+              Convert JPG images into PDF instantly.
+            </p>
 
-              </div>
+            <div className="text-zinc-900 font-bold">
+              Open Tool →
+            </div>
+          </Link>
 
-            </Link>
+          {/* AI PPT */}
+          <Link
+            href="/ai-ppt-generator"
+            className="bg-white rounded-3xl border border-zinc-200 p-6 hover:shadow-xl transition"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-yellow-100 flex items-center justify-center mb-5">
+              <LayoutGrid className="w-7 h-7 text-yellow-600" />
+            </div>
 
-          ))}
+            <h3 className="text-3xl font-black text-zinc-900 mb-3">
+              AI PPT Generator
+            </h3>
 
+            <p className="text-zinc-500 text-lg leading-relaxed mb-6">
+              Generate presentation slides using AI.
+            </p>
+
+            <div className="text-orange-600 font-bold">
+              Open Tool →
+            </div>
+          </Link>
+
+          {/* PDF CONVERTER */}
+          <Link
+            href="/pdf-to-jpg"
+            className="bg-white rounded-3xl border border-zinc-200 p-6 hover:shadow-xl transition"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center mb-5">
+              <Type className="w-7 h-7 text-blue-600" />
+            </div>
+
+            <h3 className="text-3xl font-black text-zinc-900 mb-3">
+              PDF Converter
+            </h3>
+
+            <p className="text-zinc-500 text-lg leading-relaxed mb-6">
+              Convert PDF ke JPG / PNG HD dengan fitur premium.
+            </p>
+
+            <div className="text-blue-600 font-bold">
+              Open Tool →
+            </div>
+          </Link>
         </div>
-
       </section>
 
+      {/* ========================= */}
       {/* FAQ */}
+      {/* ========================= */}
+
       <section
         id="faq"
-        className="max-w-4xl mx-auto px-5 pb-20"
+        className="max-w-4xl mx-auto px-6 pb-24"
       >
-
         <div className="text-center mb-10">
-
-          <h2 className="text-3xl font-bold mb-3">
+          <h2 className="text-5xl font-black text-zinc-900 mb-3">
             Frequently Asked Questions
           </h2>
 
-          <p className="text-gray-500">
+          <p className="text-zinc-500 text-lg">
             Everything you need to know.
           </p>
-
         </div>
 
         <div className="space-y-5">
 
-          {faqs.map((faq, index) => (
+          <div className="bg-white border border-zinc-200 rounded-3xl p-8">
+            <h3 className="text-2xl font-bold mb-3">
+              Is ToolPintar free?
+            </h3>
 
-            <div
-              key={index}
-              className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
-            >
+            <p className="text-zinc-500 text-lg">
+              Yes, all tools are free to use online.
+            </p>
+          </div>
 
-              <h3 className="text-lg font-bold mb-3">
+          <div className="bg-white border border-zinc-200 rounded-3xl p-8">
+            <h3 className="text-2xl font-bold mb-3">
+              Are uploaded files secure?
+            </h3>
 
-                {faq.q}
+            <p className="text-zinc-500 text-lg">
+              Yes, your files are processed securely and privately.
+            </p>
+          </div>
 
-              </h3>
+          <div className="bg-white border border-zinc-200 rounded-3xl p-8">
+            <h3 className="text-2xl font-bold mb-3">
+              Can I use ToolPintar on mobile?
+            </h3>
 
-              <p className="text-gray-600 leading-relaxed">
-
-                {faq.a}
-
-              </p>
-
-            </div>
-
-          ))}
-
+            <p className="text-zinc-500 text-lg">
+              Yes, ToolPintar works perfectly on desktop and mobile devices.
+            </p>
+          </div>
         </div>
-
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-gray-200 bg-white">
+      <footer className="border-t border-zinc-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
 
-        <div className="max-w-6xl mx-auto px-5 py-6 text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between gap-3">
-
-          <p>
+          <p className="text-zinc-400">
             © 2026 ToolPintar. All rights reserved.
           </p>
 
-          <div className="flex gap-5">
-
-            <a
-              href="#"
-              className="hover:text-black transition"
-            >
-              Privacy
-            </a>
-
-            <a
-              href="#"
-              className="hover:text-black transition"
-            >
-              Terms
-            </a>
-
+          <div className="flex gap-6 text-zinc-400">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
           </div>
-
         </div>
-
       </footer>
-
     </main>
   );
 }

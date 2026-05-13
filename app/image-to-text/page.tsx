@@ -76,7 +76,7 @@ export default function ImageToTextPage() {
       {/* HERO */}
       <section
         style={{
-          padding: "100px 20px",
+          padding: "45px 20px",
           background:
             "linear-gradient(135deg,#4338ca,#7c3aed)",
           color: "white",
@@ -85,10 +85,10 @@ export default function ImageToTextPage() {
       >
         <h1
           style={{
-            fontSize: "72px",
+            fontSize: "42px",
             fontWeight: 800,
-            marginBottom: "25px",
-            letterSpacing: "-3px",
+            marginBottom: "12px",
+            letterSpacing: "-2px",
           }}
         >
           Image to Text OCR
@@ -96,9 +96,9 @@ export default function ImageToTextPage() {
 
         <p
           style={{
-            maxWidth: "900px",
+            maxWidth: "700px",
             margin: "0 auto",
-            fontSize: "28px",
+            fontSize: "16px",
             lineHeight: "1.8",
           }}
         >
@@ -110,18 +110,18 @@ export default function ImageToTextPage() {
       {/* TOOL */}
       <section
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1100px",
           margin: "0 auto",
-          padding: "80px 20px",
+          padding: "40px 20px",
         }}
       >
         <div
           style={{
             background: "white",
-            borderRadius: "35px",
-            padding: "50px",
+            borderRadius: "28px",
+            padding: "35px",
             boxShadow:
-              "0 20px 50px rgba(0,0,0,0.08)",
+              "0 20px 50px rgba(0,0,0,0.06)",
           }}
         >
           {/* UPLOAD BOX */}
@@ -129,9 +129,9 @@ export default function ImageToTextPage() {
             htmlFor="upload-image"
             style={{
               display: "block",
-              border: "3px dashed #4f46e5",
-              borderRadius: "30px",
-              padding: "80px 30px",
+              border: "2px dashed #4f46e5",
+              borderRadius: "24px",
+              padding: "50px 20px",
               textAlign: "center",
               background: "#eef2ff",
               cursor: "pointer",
@@ -139,8 +139,8 @@ export default function ImageToTextPage() {
           >
             <div
               style={{
-                fontSize: "70px",
-                marginBottom: "20px",
+                fontSize: "48px",
+                marginBottom: "15px",
               }}
             >
               📤
@@ -148,9 +148,9 @@ export default function ImageToTextPage() {
 
             <h2
               style={{
-                fontSize: "38px",
+                fontSize: "28px",
                 color: "#4f46e5",
-                marginBottom: "15px",
+                marginBottom: "10px",
                 fontWeight: 800,
               }}
             >
@@ -160,7 +160,7 @@ export default function ImageToTextPage() {
             <p
               style={{
                 color: "#555",
-                fontSize: "22px",
+                fontSize: "16px",
               }}
             >
               Click or drag image here
@@ -181,13 +181,13 @@ export default function ImageToTextPage() {
           {image && (
             <div
               style={{
-                marginTop: "50px",
+                marginTop: "35px",
               }}
             >
               <h2
                 style={{
-                  fontSize: "34px",
-                  marginBottom: "25px",
+                  fontSize: "26px",
+                  marginBottom: "20px",
                   fontWeight: 800,
                 }}
               >
@@ -199,11 +199,11 @@ export default function ImageToTextPage() {
                 alt="Preview"
                 style={{
                   width: "100%",
-                  borderRadius: "25px",
-                  maxHeight: "600px",
+                  borderRadius: "20px",
+                  maxHeight: "500px",
                   objectFit: "contain",
                   boxShadow:
-                    "0 15px 40px rgba(0,0,0,0.1)",
+                    "0 10px 30px rgba(0,0,0,0.08)",
                 }}
               />
 
@@ -212,15 +212,15 @@ export default function ImageToTextPage() {
                 onClick={extractText}
                 disabled={loading}
                 style={{
-                  marginTop: "35px",
+                  marginTop: "25px",
                   width: "100%",
-                  padding: "22px",
-                  borderRadius: "18px",
+                  padding: "16px",
+                  borderRadius: "16px",
                   border: "none",
                   background:
                     "linear-gradient(135deg,#4f46e5,#7c3aed)",
                   color: "white",
-                  fontSize: "24px",
+                  fontSize: "18px",
                   fontWeight: 800,
                   cursor: "pointer",
                 }}
@@ -236,13 +236,13 @@ export default function ImageToTextPage() {
           {loading && (
             <div
               style={{
-                marginTop: "30px",
+                marginTop: "25px",
               }}
             >
               <div
                 style={{
                   width: "100%",
-                  height: "20px",
+                  height: "14px",
                   background: "#ddd",
                   borderRadius: "20px",
                   overflow: "hidden",
@@ -265,7 +265,7 @@ export default function ImageToTextPage() {
           {text && (
             <div
               style={{
-                marginTop: "60px",
+                marginTop: "45px",
               }}
             >
               <div
@@ -273,14 +273,14 @@ export default function ImageToTextPage() {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  marginBottom: "25px",
+                  marginBottom: "20px",
                   gap: "20px",
                   flexWrap: "wrap",
                 }}
               >
                 <h2
                   style={{
-                    fontSize: "38px",
+                    fontSize: "26px",
                     fontWeight: 800,
                   }}
                 >
@@ -290,20 +290,20 @@ export default function ImageToTextPage() {
                 <div
                   style={{
                     display: "flex",
-                    gap: "15px",
+                    gap: "12px",
                   }}
                 >
                   <button
                     onClick={copyText}
                     style={{
-                      padding: "16px 24px",
-                      borderRadius: "14px",
+                      padding: "14px 20px",
+                      borderRadius: "12px",
                       border: "none",
                       background: "#16a34a",
                       color: "white",
                       fontWeight: 700,
                       cursor: "pointer",
-                      fontSize: "18px",
+                      fontSize: "15px",
                     }}
                   >
                     Copy Text
@@ -312,14 +312,14 @@ export default function ImageToTextPage() {
                   <button
                     onClick={downloadTxt}
                     style={{
-                      padding: "16px 24px",
-                      borderRadius: "14px",
+                      padding: "14px 20px",
+                      borderRadius: "12px",
                       border: "none",
                       background: "#ea580c",
                       color: "white",
                       fontWeight: 700,
                       cursor: "pointer",
-                      fontSize: "18px",
+                      fontSize: "15px",
                     }}
                   >
                     Download TXT
@@ -332,11 +332,11 @@ export default function ImageToTextPage() {
                 readOnly
                 style={{
                   width: "100%",
-                  minHeight: "400px",
-                  padding: "30px",
-                  borderRadius: "25px",
+                  minHeight: "250px",
+                  padding: "20px",
+                  borderRadius: "18px",
                   border: "2px solid #ddd",
-                  fontSize: "20px",
+                  fontSize: "16px",
                   lineHeight: "1.8",
                   resize: "vertical",
                   outline: "none",
@@ -353,14 +353,14 @@ export default function ImageToTextPage() {
         style={{
           maxWidth: "1000px",
           margin: "0 auto",
-          padding: "0 20px 100px",
+          padding: "0 20px 70px",
         }}
       >
         <h2
           style={{
             textAlign: "center",
-            fontSize: "52px",
-            marginBottom: "45px",
+            fontSize: "34px",
+            marginBottom: "30px",
             fontWeight: 800,
           }}
         >
@@ -370,7 +370,7 @@ export default function ImageToTextPage() {
         <div
           style={{
             display: "grid",
-            gap: "24px",
+            gap: "18px",
           }}
         >
           {[
@@ -391,16 +391,16 @@ export default function ImageToTextPage() {
               key={index}
               style={{
                 background: "white",
-                padding: "35px",
-                borderRadius: "25px",
+                padding: "25px",
+                borderRadius: "20px",
                 boxShadow:
-                  "0 10px 30px rgba(0,0,0,0.05)",
+                  "0 8px 20px rgba(0,0,0,0.05)",
               }}
             >
               <h3
                 style={{
-                  fontSize: "28px",
-                  marginBottom: "12px",
+                  fontSize: "20px",
+                  marginBottom: "10px",
                   fontWeight: 700,
                 }}
               >
@@ -410,8 +410,8 @@ export default function ImageToTextPage() {
               <p
                 style={{
                   color: "#555",
-                  lineHeight: "1.9",
-                  fontSize: "20px",
+                  lineHeight: "1.8",
+                  fontSize: "15px",
                   margin: 0,
                 }}
               >
@@ -426,9 +426,9 @@ export default function ImageToTextPage() {
       <footer
         style={{
           textAlign: "center",
-          padding: "50px 20px",
+          padding: "30px 20px",
           color: "#777",
-          fontSize: "18px",
+          fontSize: "14px",
         }}
       >
         © 2026 ToolPintar. All rights reserved.

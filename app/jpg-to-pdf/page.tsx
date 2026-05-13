@@ -74,7 +74,7 @@ export default function JpgToPdfPage() {
       {/* HERO */}
       <section
         style={{
-          padding: "100px 20px",
+          padding: "45px 20px",
           background:
             "linear-gradient(135deg,#0f172a,#1e293b)",
           color: "white",
@@ -83,10 +83,10 @@ export default function JpgToPdfPage() {
       >
         <h1
           style={{
-            fontSize: "72px",
+            fontSize: "42px",
             fontWeight: 800,
-            marginBottom: "25px",
-            letterSpacing: "-3px",
+            marginBottom: "12px",
+            letterSpacing: "-2px",
           }}
         >
           JPG to PDF Converter
@@ -94,9 +94,9 @@ export default function JpgToPdfPage() {
 
         <p
           style={{
-            maxWidth: "900px",
+            maxWidth: "700px",
             margin: "0 auto",
-            fontSize: "28px",
+            fontSize: "16px",
             lineHeight: "1.8",
           }}
         >
@@ -108,18 +108,18 @@ export default function JpgToPdfPage() {
       {/* TOOL */}
       <section
         style={{
-          maxWidth: "1300px",
+          maxWidth: "1100px",
           margin: "0 auto",
-          padding: "80px 20px",
+          padding: "40px 20px",
         }}
       >
         <div
           style={{
             background: "white",
-            borderRadius: "35px",
-            padding: "50px",
+            borderRadius: "28px",
+            padding: "35px",
             boxShadow:
-              "0 20px 50px rgba(0,0,0,0.08)",
+              "0 20px 50px rgba(0,0,0,0.06)",
           }}
         >
           {/* UPLOAD */}
@@ -127,9 +127,9 @@ export default function JpgToPdfPage() {
             htmlFor="upload-images"
             style={{
               display: "block",
-              border: "3px dashed #0f172a",
-              borderRadius: "30px",
-              padding: "80px 30px",
+              border: "2px dashed #0f172a",
+              borderRadius: "24px",
+              padding: "50px 20px",
               textAlign: "center",
               background: "#f8fafc",
               cursor: "pointer",
@@ -137,8 +137,8 @@ export default function JpgToPdfPage() {
           >
             <div
               style={{
-                fontSize: "70px",
-                marginBottom: "20px",
+                fontSize: "48px",
+                marginBottom: "15px",
               }}
             >
               🖼️
@@ -146,9 +146,9 @@ export default function JpgToPdfPage() {
 
             <h2
               style={{
-                fontSize: "38px",
+                fontSize: "28px",
                 color: "#0f172a",
-                marginBottom: "15px",
+                marginBottom: "10px",
                 fontWeight: 800,
               }}
             >
@@ -158,7 +158,7 @@ export default function JpgToPdfPage() {
             <p
               style={{
                 color: "#555",
-                fontSize: "22px",
+                fontSize: "16px",
               }}
             >
               Click or drag images here
@@ -180,13 +180,13 @@ export default function JpgToPdfPage() {
           {images.length > 0 && (
             <div
               style={{
-                marginTop: "60px",
+                marginTop: "35px",
               }}
             >
               <h2
                 style={{
-                  fontSize: "40px",
-                  marginBottom: "30px",
+                  fontSize: "26px",
+                  marginBottom: "20px",
                   fontWeight: 800,
                 }}
               >
@@ -197,8 +197,8 @@ export default function JpgToPdfPage() {
                 style={{
                   display: "grid",
                   gridTemplateColumns:
-                    "repeat(auto-fit,minmax(260px,1fr))",
-                  gap: "25px",
+                    "repeat(auto-fit,minmax(220px,1fr))",
+                  gap: "18px",
                 }}
               >
                 {images.map((img, index) => (
@@ -206,10 +206,10 @@ export default function JpgToPdfPage() {
                     key={index}
                     style={{
                       background: "#fff",
-                      borderRadius: "25px",
+                      borderRadius: "18px",
                       overflow: "hidden",
                       boxShadow:
-                        "0 10px 30px rgba(0,0,0,0.08)",
+                        "0 8px 20px rgba(0,0,0,0.06)",
                     }}
                   >
                     <img
@@ -217,7 +217,7 @@ export default function JpgToPdfPage() {
                       alt={`Preview ${index}`}
                       style={{
                         width: "100%",
-                        height: "280px",
+                        height: "220px",
                         objectFit: "cover",
                       }}
                     />
@@ -230,15 +230,15 @@ export default function JpgToPdfPage() {
                 onClick={generatePdf}
                 disabled={loading}
                 style={{
-                  marginTop: "40px",
+                  marginTop: "30px",
                   width: "100%",
-                  padding: "24px",
-                  borderRadius: "18px",
+                  padding: "16px",
+                  borderRadius: "16px",
                   border: "none",
                   background:
                     "linear-gradient(135deg,#0f172a,#334155)",
                   color: "white",
-                  fontSize: "24px",
+                  fontSize: "18px",
                   fontWeight: 800,
                   cursor: "pointer",
                 }}
@@ -255,16 +255,16 @@ export default function JpgToPdfPage() {
       {/* FEATURES */}
       <section
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1000px",
           margin: "0 auto",
-          padding: "0 20px 100px",
+          padding: "0 20px 70px",
         }}
       >
         <h2
           style={{
             textAlign: "center",
-            fontSize: "54px",
-            marginBottom: "45px",
+            fontSize: "34px",
+            marginBottom: "30px",
             fontWeight: 800,
           }}
         >
@@ -275,8 +275,8 @@ export default function JpgToPdfPage() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              "repeat(auto-fit,minmax(260px,1fr))",
-            gap: "25px",
+              "repeat(auto-fit,minmax(220px,1fr))",
+            gap: "18px",
           }}
         >
           {[
@@ -289,12 +289,12 @@ export default function JpgToPdfPage() {
               key={index}
               style={{
                 background: "white",
-                padding: "35px",
-                borderRadius: "28px",
+                padding: "24px",
+                borderRadius: "20px",
                 boxShadow:
-                  "0 12px 30px rgba(0,0,0,0.05)",
+                  "0 8px 20px rgba(0,0,0,0.05)",
                 textAlign: "center",
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: 700,
               }}
             >
@@ -308,9 +308,9 @@ export default function JpgToPdfPage() {
       <footer
         style={{
           textAlign: "center",
-          padding: "50px 20px",
+          padding: "30px 20px",
           color: "#777",
-          fontSize: "18px",
+          fontSize: "14px",
         }}
       >
         © 2026 ToolPintar. All rights reserved.
