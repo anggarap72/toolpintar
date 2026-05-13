@@ -14,15 +14,35 @@ export default function Home() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-5 border-b bg-white sticky top-0 z-50">
 
-        <h1 className="text-2xl font-bold text-blue-600">
+        <Link
+          href="/"
+          className="text-2xl font-bold text-blue-600"
+        >
           ToolPintar
-        </h1>
+        </Link>
 
         <div className="hidden md:flex gap-6 text-sm font-medium">
-          <a href="#">PDF Tools</a>
-          <a href="#">AI Tools</a>
-          <a href="#">OCR Tools</a>
-          <a href="#">Template</a>
+
+          <Link href="/">
+            Home
+          </Link>
+
+          <Link href="/image-to-text">
+            OCR Tools
+          </Link>
+
+          <Link href="#">
+            PDF Tools
+          </Link>
+
+          <Link href="#">
+            AI Tools
+          </Link>
+
+          <Link href="#">
+            Templates
+          </Link>
+
         </div>
 
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-sm font-medium transition">
