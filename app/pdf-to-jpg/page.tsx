@@ -97,6 +97,7 @@ export default function PdfToJpgPage() {
         await page.render({
           canvasContext: context,
           viewport,
+          canvas: canvas as any,
         }).promise;
 
         const mimeType =
