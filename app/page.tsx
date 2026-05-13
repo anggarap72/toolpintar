@@ -17,15 +17,6 @@ export default function Home() {
       icon: "📝",
     },
     {
-      title: "PDF to Word",
-      desc: "Convert PDF files into editable Word documents.",
-      color: "#ef4444",
-      buttonBg: "#fee2e2",
-      buttonText: "#ef4444",
-      link: "/pdf-to-word",
-      icon: "📄",
-    },
-    {
       title: "Compress PDF",
       desc: "Reduce PDF file size without losing quality.",
       color: "#16a34a",
